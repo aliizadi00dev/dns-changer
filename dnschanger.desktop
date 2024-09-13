@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=DNS Changer
+Comment=DNS Chnager By aliizadi00dev
+Exec=/usr/local/bin/dns_changer
+Terminal=false
+Type=Application
