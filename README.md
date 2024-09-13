@@ -14,6 +14,9 @@ sudo cp ./dns_changer.sh /usr/local/bin/dns_changer
 
 After installation run this program as background process and add it to startup applications to check your DNS every one minute and notify you to make decision for you that you need it at now or not.
 
+- Notification showed at top-right of screen in most distro and looks like this:
+  ![](/screenshots/notification.png)
+
 1. Check if you already connected to DNS server:
 
 ```zsh
@@ -46,6 +49,6 @@ downdns
 
 ## Powered By
 
-[https://403.online/](https://403.online/)
-[https://shecan.ir/](https://shecan.ir/)
+[https://403.online/](https://403.online/)  
+[https://shecan.ir/](https://shecan.ir/)  
 [https://begzar.ir/](https://begzar.ir/)
