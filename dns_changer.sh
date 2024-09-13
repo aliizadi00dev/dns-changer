@@ -46,7 +46,7 @@ function add_alias() {
     echo 'alias downdns="nmcli connection modify $connectionName ipv4.dns '' && nmcli connection modify $connectionName ipv4.ignore-auto-dns no && nmcli connection show $connectionName | grep -e ipv4.dns -e ipv4.ignore && systemctl restart NetworkManager"' >>"${SHELL_RC}"
     ;;
   "dnsstatus")
-    echo 'alias dnsstatus="nmcli connection show $connectionName | grep -e ipv4.dns -e ipv4.ignore "' >>"${SHELL_RC}"
+    echo 'alias dnsstatus="nmcli connection show $connectionName | grep -e ipv4.dns -e ipv4.ignore "' >> "${SHELL_RC}"
     ;;
   *)
     echo "${RED}There is problem\!\! I doesn't do my job${NO_COLOR}"
@@ -56,14 +56,15 @@ function add_alias() {
 
 if [[ "${#UNALIASED_LIST[@]}" -gt 0 ]]; then
   echo "# ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲ DNS CHANGER ALIASES ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲ " >>"${HOME}/.zshrc"
-  echo "connectionName=\$(nmcli connection show --active | sed -n '2p' | awk '{print \$1}')" >>"${HOME}/.zshrc"
+  echo "connectionName=\$(nmcli connection show --active | sed -n '2p' | awk '{print \$1}')" >>"${SHELL_RC}"
 
   for unaliased in "${UNALIASED_LIST[@]}"; do
     add_alias "$unaliased"
   done
 
-  echo "# ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲ DNS CHANGER ALIASES [end] ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲ " >>"${HOME}/.zshrc"
-  echo "${GREEN}Add successfuly aliases to ~/.zshrc${NO_COLOR}"
+  echo "# ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲ DNS CHANGER ALIASES [end] ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲ " >>"${SHELL_RC}"
+  echo "${GREEN}Add successfuly aliases to ${SHELL_RC}${NO_COLOR}"
+  source "${SHELL_RC}"
 fi
 
 # // ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲  IMPLEMENTING DNS CHECKER ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲
