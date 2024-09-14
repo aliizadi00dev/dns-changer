@@ -18,18 +18,18 @@ cp ./dnschanger.desktop ~/.config/autostart/
 
 ## Usage
 
-After installation run this program as background process and add it to startup applications to check your DNS every one minute and notify you to make decision for you that you need it at now or not.
+After installation run this program as a background process and add it to startup applications to check your DNS every one minute and notify you to make decision for you that you need it at now or not.
 
-- Notification showed at top-right of screen in most distro and looks like this:
+- Notification showed at top-right of screen in most distros and looks like this:
   ![](/screenshots/notification.png)
 
-- For running first use this:
+- For running first, use this:
 
 ```zsh
-dns_changer &
+(dns_changer &)
 ```
 
-> You should add this command to startup application or see installation section for creating `.desktop` entry to `~/.config/autostart` (for some desktop environment this method not work).
+> You should add this command (without parentheses) to startup applications or see installation section for creating `.desktop` entry to `~/.config/autostart` (for some desktop environments this method not works).
 
 1. Check if you already connected to DNS server:
 
