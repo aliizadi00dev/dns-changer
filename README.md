@@ -1,5 +1,9 @@
 # DNS Changer (for Iranian developers)
 
+![](/screenshots/free-palestine.png)
+
+---
+
 ![](/screenshots/usage.gif)
 
 ## Installation
