@@ -8,6 +8,11 @@ YELLOW="\033[33m"
 # // ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲  FIND SHELL AND ITS VARIABLES▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲
 SHELL_RC="${HOME}/.zshrc"
 # // ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲  PREPARING DNS CHANGER ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲
+greped_dns=($(ps ax | grep -E 'zsh.*dns_changer'))
+if [[ "${#greped_dns[@]}" -ge 2 ]]; then
+    echo "${RED}Dns Changer is runnig...${NO_COLOR}"
+    exit 0 
+fi
 # // ▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲▼▲  CHECK ALIASES
 function check_alias() {
   source "${SHELL_RC}"
